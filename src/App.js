@@ -1,25 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router";
+import AppContext from "./context/AppContext";
+import ListProduct from "./pages/product/list";
+const globalState = [
+    {
+        name: 'IP12',
+        price: 100
+    },
+    {
+        name: 'IP13',
+        price: 100
+    }
+]
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <AppContext.Provider value={globalState}>
+            <div>
+                <Routes>
+                    <Route path={'/products'} element={<ListProduct></ListProduct>}></Route>
+                </Routes>
+            </div>
+        </AppContext.Provider>
+    );
 }
 
 export default App;
