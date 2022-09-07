@@ -3,6 +3,7 @@ import './App.css';
 import {Route, Routes} from "react-router";
 import AppContext from "./context/AppContext";
 import ListProduct from "./pages/product/list";
+import React from "react";
 const globalState = [
     {
         name: 'IP12',
@@ -18,9 +19,7 @@ function App() {
     return (
         <AppContext.Provider value={globalState}>
             <div>
-                <Routes>
-                    <Route path={'/products'} element={<ListProduct></ListProduct>}></Route>
-                </Routes>
+                <ListProduct></ListProduct>
             </div>
         </AppContext.Provider>
     );
